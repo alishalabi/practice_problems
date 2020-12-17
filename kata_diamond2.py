@@ -45,37 +45,37 @@ from pprint import pprint
 
 letter_key = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+# Time complexity On/2 => On, where n = number of lines in diamond (ie, how close to Z)
+# Space complexity: On/2 => On where n = number of lines in diamond (ie, how close to Z)
+
 
 def create_diamond(letter):
     first_index = letter_key.index(letter)
     current_index = first_index
     max_depth = (current_index * 2) + 1
-    # ret = [["*"] * max_depth] * max_depth
-    # pprint(ret)
+    ret = []
     left_index = 0
     right_index = max_depth - 1
-    # Start by building top half only
-    ret = [['*', '*', '*', '*', '*'],
-           ['*', '*', '*', '*', '*'],
-           ['*', '*', '*', '*', '*'],
-           ['*', '*', '*', '*', '*'],
-           ['*', '*', '*', '*', '*']]
     while current_index >= 0:
-        # print(f"current index: {current_index}")
-        # print(f"left_index: {left_index}")
-        # print(f"right_index: {right_index}")
-        ret[current_index][left_index] = letter_key[current_index]
-        ret[current_index][right_index] = letter_key[current_index]
+        line = []
+        for i in range(max_depth):
+            line.append("*")
+        line[left_index] = letter_key[current_index]
+        line[right_index] = letter_key[current_index]
+        # Case: first line (unique)
+        if current_index == first_index:
+            ret.append(line)
+        # Case: all other lines (doubles)
+        else:
+            ret.insert(0, line)
+            ret.append(line)
         left_index += 1
         right_index -= 1
         current_index -= 1
-        # pprint(ret)
-        # return
-    # Copy bottom half from top half
-    for i in range(first_index):
-        ret[max_depth - 1 - i] = ret[i]
     pprint(ret)
     return ret
 
 
+create_diamond("A")
 create_diamond("C")
+create_diamond("G")
