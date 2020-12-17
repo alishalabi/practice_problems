@@ -47,30 +47,35 @@ letter_key = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def create_diamond(letter):
-    current_index = letter_key.index(letter)
+    first_index = letter_key.index(letter)
+    current_index = first_index
     max_depth = (current_index * 2) + 1
-    ret = [["*"] * max_depth] * max_depth
-    pprint(ret)
+    # ret = [["*"] * max_depth] * max_depth
+    # pprint(ret)
     left_index = 0
     right_index = max_depth - 1
     # Start by building top half only
-    mock_array = [['*', '*', '*', '*', '*'],
-                  ['*', '*', '*', '*', '*'],
-                  ['*', '*', '*', '*', '*'],
-                  ['*', '*', '*', '*', '*'],
-                  ['*', '*', '*', '*', '*']]
+    ret = [['*', '*', '*', '*', '*'],
+           ['*', '*', '*', '*', '*'],
+           ['*', '*', '*', '*', '*'],
+           ['*', '*', '*', '*', '*'],
+           ['*', '*', '*', '*', '*']]
     while current_index >= 0:
-        print(f"current index: {current_index}")
-        print(f"left_index: {left_index}")
-        print(f"right_index: {right_index}")
+        # print(f"current index: {current_index}")
+        # print(f"left_index: {left_index}")
+        # print(f"right_index: {right_index}")
         ret[current_index][left_index] = letter_key[current_index]
         ret[current_index][right_index] = letter_key[current_index]
-        # left_index += 1
-        # right_index -= 1
-        # current_index -= 1
-        pprint(ret)
-        return
-    # pprint(ret)
+        left_index += 1
+        right_index -= 1
+        current_index -= 1
+        # pprint(ret)
+        # return
+    # Copy bottom half from top half
+    for i in range(first_index):
+        ret[max_depth - 1 - i] = ret[i]
+    pprint(ret)
+    return ret
 
 
 create_diamond("C")
