@@ -5,6 +5,8 @@
   - Pattern matching, strings
 - High Scores: https://exercism.io/my/solutions/9abd92d1fe724b09a112e00681caa3df
   - Sequences, classes, text-formatting
+- Armstrong Numbers: https://exercism.io/my/solutions/bb866ff7d1304e9cbc72665da8e787ed
+  - Algorithms, loops, math
 
 # Peer Collaboration:
 -
