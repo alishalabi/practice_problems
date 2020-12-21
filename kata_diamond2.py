@@ -45,8 +45,8 @@ from pprint import pprint
 
 letter_key = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-# Time complexity: On, where n = number of lines in diamond (ie, how close to Z)
-# Space complexity: On where n = number of lines in diamond (ie, how close to Z)
+# Time complexity (worst case): On, where n = number of lines in diamond (ie, how close to Z)
+# Space complexity (worse case): On, where n = number of lines in diamond (ie, how close to Z)
 
 
 def create_diamond(letter):
