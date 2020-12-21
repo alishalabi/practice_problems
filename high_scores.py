@@ -35,6 +35,10 @@ class Scoresheet:
     def add_score(self, new_score):
         self.score_input.append(new_score)
 
+        def get_key(item):
+            return item[0]
+        self.sorted_input = sorted(self.score_input, key=get_key, reverse=True)
+
     def get_last_score(self):
         last_score = self.score_input[-1]
         print(f"Last score: {last_score[1]} scored {last_score[0]}")
