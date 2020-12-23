@@ -9,6 +9,8 @@
   - Algorithms, loops, math
 - Bank Accounts: https://exercism.io/my/solutions/72f24b2b622a4fe9aff2561a6b6dc864
   - Classes, concurrency, conditionals
+- Linked Lists: https://exercism.io/my/solutions/af31424a7eb14daa9cacef0429f989ab
+  - Algorithms, conditionals, lists
 
 # Peer Collaboration:
 -

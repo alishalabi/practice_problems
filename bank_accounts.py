@@ -38,14 +38,13 @@ class Account:
         if self.status == "Closed":
             print("Error: account is closed and is not accepting deposits.")
             return
-        new_balance = self.balance + amount
+        self.balance += amount
         transaction = {
             "Type": "Deposit",
             "Amount": amount,
             "Source": source,
-            "Balance after transaction": new_balance
+            "Balance after transaction": self.balance
         }
-        self.balance = new_balance
         self.transactions.append(transaction)
 
     def withdraw(self, amount, source):
@@ -55,14 +54,13 @@ class Account:
         if amount > self.balance:
             print(f"Insufficient balance to withdraw {amount}. Please withdaw up to {self.balance}.")
             return
-        new_balance = self.balance - amount
+        self.balance -= amount
         transaction = {
             "Type": "Withdraw",
             "Amount": amount,
             "Source": source,
-            "Balance after transaction": new_balance
+            "Balance after transaction": self.balance
         }
-        self.balance = new_balance
         self.transactions.append(transaction)
 
     def close_account(self):
