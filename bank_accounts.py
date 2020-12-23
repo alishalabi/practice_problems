@@ -36,15 +36,40 @@ class Account:
 
     def deposit(self, amount, source):
         if self.status == "Closed":
-            print("Error: account is closed and is not accepting deposits")
+            print("Error: account is closed and is not accepting deposits.")
             return
+        new_balance = self.balance + amount
         transaction = {
             "Type": "Deposit",
             "Amount": amount,
-            "Source": source
+            "Source": source,
+            "Balance after transaction": new_balance
         }
-        self.balance += amount
+        self.balance = new_balance
         self.transactions.append(transaction)
+
+    def withdraw(self, amount, source):
+        if self.status == "Closed":
+            print("Error: account is closed and is not accepting deposits.")
+            return
+        if amount > self.balance:
+            print(f"Insufficient balance to withdraw {amount}. Please withdaw up to {self.balance}.")
+            return
+        new_balance = self.balance - amount
+        transaction = {
+            "Type": "Withdraw",
+            "Amount": amount,
+            "Source": source,
+            "Balance after transaction": new_balance
+        }
+        self.balance = new_balance
+        self.transactions.append(transaction)
+
+    def close_account(self):
+        self.status = "Closed"
+
+    def open_account(self):
+        self.status = "Open"
 
     def check_status(self):
         pprint(self.status)
@@ -54,7 +79,18 @@ class Account:
 
 account1 = Account()
 # account1.check_status()
-# account1.deposit(15000, "Mobile")
+account1.deposit(15000, "Mobile")  # Balance: 15000
 # account1.check_status()
-# account1.deposit(5000, "Online")
+account1.deposit(5000, "Online")  # Balance: 20000
 # account1.check_status()
+account1.withdraw(10000, "ATM")  # Balance: 10000
+# account1.check_status()
+account1.withdraw(1000000, "ATM")  # Should show error message
+account1.close_account()
+# account1.withdraw(10, "Shopping")  # Should show error message
+# account1.deposit(10, "Online")  # Should show error message
+account1.open_account()
+account1.withdraw(1000, "Shopping")  # Balance: 9000
+# account1.check_status()
+account1.deposit(10000, "Mobile")  # Balance: 19000
+account1.check_status()
