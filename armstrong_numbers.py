@@ -17,7 +17,7 @@ def armstrong_number(input):
     armstrong_value = len(string_input)
     converted_sum = 0
     for digit in string_input:
-        converted_sum = converted_sum + (int(digit) ** armstrong_value)
+        converted_sum += (int(digit) ** armstrong_value)
     if converted_sum == input:
         return True
     else:
