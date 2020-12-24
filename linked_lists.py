@@ -39,19 +39,56 @@ class LinkedList:
             self.tail = new_node
 
     def pop(self):
-        pass
+        if self.tail == None:
+            print("Error: cannot pop from an empty linked list")
+            return
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+        else:
+            self.tail = self.tail.previous
 
     def shift(self):
-        pass
+        if self.tail == None:
+            print("Error: cannot pop from an empty linked list")
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
 
-    def unshift(self, node):
-        pass
+    def unshift(self, data):
+        new_node = Node(data)
+        if self.head == None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.previous = new_node
+            self.head = new_node
 
 
-LL = LinkedList()
-LL.push("Apple")
-print(LL.head.data)
-print(LL.tail.data)
-LL.push("Banana")
-print(LL.head.data)
-print(LL.tail.data)
+# LL = LinkedList()
+# LL.push("Apple")
+# print(LL.head.data)
+# print(LL.tail.data)
+# LL.push("Banana")
+# print(LL.head.data)
+# print(LL.tail.data)
+# LL.push("Cherry")
+# print(LL.head.data)
+# print(LL.head.next.data)
+# print(LL.tail.data)
+# LL.pop()
+# print(LL.head.data)
+# print(LL.tail.data)
+# LL.pop()
+# LL.pop()
+# LL.pop()
+# LL.shift()
+# print(LL.head.data)
+# print(LL.tail.data)
+# LL.unshift("Xenon")
+# print(LL.head.data)
+# print(LL.head.next.data)
+# print(LL.tail.data)
