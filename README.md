@@ -11,6 +11,8 @@
   - Classes, concurrency, conditionals
 - Linked Lists: https://exercism.io/my/solutions/af31424a7eb14daa9cacef0429f989ab
   - Algorithms, conditionals, lists
+- ETL: https://exercism.io/my/solutions/c7cdd46f137e46e18482a4840164fe18
+  - Loops, math, transforming
 
 # Peer Collaboration:
 -
