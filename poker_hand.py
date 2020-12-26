@@ -53,6 +53,38 @@ hand4 = {
     (4, "clubs"),
 }
 
+hand5 = {
+    (2, "clubs"),
+    (2, "diamonds"),
+    (2, "spades"),
+    (3, "clubs"),
+    (4, "clubs"),
+}
+
+hand6 = {
+    (2, "clubs"),
+    (2, "diamonds"),
+    (3, "spades"),
+    (3, "clubs"),
+    (4, "clubs"),
+}
+
+hand7 = {
+    (2, "clubs"),
+    (2, "diamonds"),
+    (10, "spades"),
+    (3, "clubs"),
+    (4, "clubs"),
+}
+
+hand8 = {
+    (2, "clubs"),
+    (7, "diamonds"),
+    (10, "spades"),
+    (3, "clubs"),
+    (4, "clubs"),
+}
+
 
 def check_flush(suits):
     if 5 not in suits.values():
@@ -91,10 +123,26 @@ def check_three_of_a_kind(values):
     return True
 
 
-def check_full_house(values):
-    if 3 not in values.values():
-        return False
+def check_pair(values):
     if 2 not in values.values():
+        return False
+    return True
+
+
+def check_full_house(values):
+    if check_three_of_a_kind(values) == False:
+        return False
+    if check_pair(values) == False:
+        return False
+    return True
+
+
+def check_two_pairs(values):
+    count = 0
+    for key in values:
+        if values[key] == 2:
+            count += 1
+    if count != 2:
         return False
     return True
 
@@ -137,9 +185,40 @@ def score_one_hand(hand):
         return ("full house", 2)
     if check_flush(suits):
         return ("flush", 3)
+    if check_three_of_a_kind(values):
+        return ("three of a kind", 4)
+    if check_two_pairs(values):
+        return ("two pairs", 5)
+    if check_pair(values):
+        return ("pair", 6)
+    return ("high card", 7)
 
 
-print(score_one_hand(hand1))
-print(score_one_hand(hand2))
-print(score_one_hand(hand3))
-print(score_one_hand(hand4))
+def compare_hands(hands_array):
+    high_hand = None
+    for hand in hands_array:
+        converted_hand = score_one_hand(hand)
+        if high_hand == None:
+            high_hand = converted_hand
+        if converted_hand[1] < high_hand[1]:
+            high_hand = hand
+    return high_hand[0]
+
+# Tests: one hand
+# print(score_one_hand(hand1))
+# print(score_one_hand(hand2))
+# print(score_one_hand(hand3))
+# print(score_one_hand(hand4))
+# print(score_one_hand(hand5))
+# print(score_one_hand(hand6))
+# print(score_one_hand(hand7))
+# print(score_one_hand(hand8))
+
+
+# Tests: compare hands
+compare1 = [hand1, hand4, hand5]
+compare2 = [hand2, hand4, hand5]
+compare3 = [hand6, hand7, hand8]
+print(compare_hands(compare1))
+print(compare_hands(compare2))
+print(compare_hands(compare3))
