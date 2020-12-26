@@ -13,8 +13,10 @@
   - Algorithms, conditionals, lists
 - ETL: https://exercism.io/my/solutions/c7cdd46f137e46e18482a4840164fe18
   - Loops, math, transforming
-- Knapsack:https://exercism.io/my/solutions/18935be2b6f34c849388a81371cfb3fe
+- * Knapsack :https://exercism.io/my/solutions/18935be2b6f34c849388a81371cfb3fe
   - Algorithms, lists, loops
+- Poker Hand: https://exercism.io/my/solutions/d81a7a5adb1f4d028a212b2127b16290
+  - Conditionals, lists, loops, parsing
 
 # Peer Collaboration:
 -
