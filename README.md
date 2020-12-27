@@ -17,6 +17,8 @@
   - Algorithms, lists, loops
 - Poker Hand: https://exercism.io/my/solutions/d81a7a5adb1f4d028a212b2127b16290
   - Conditionals, lists, loops, parsing
+- Brackets: https://exercism.io/my/solutions/8caf1bf63ed0490e9a7162238da94550
+  - Parsing, recursion, stacks, strings
 
 # Peer Collaboration:
 -

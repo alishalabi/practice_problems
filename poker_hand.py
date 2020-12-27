@@ -9,17 +9,17 @@ See wikipedia for an overview of poker hands.
 # Assumption: face cards do not need to be converted (ie Jack -> 11)
 # Assumption: aces always high
 
-score_key = {
-    "straight flush": 0,
-    "four of a kind": 1,
-    "full house": 2,
-    "flush": 3,
-    "staight": 4,
-    "three of a kind": 5,
-    "two pair": 6,
-    "one pair": 7,
-    "high card": 8
-}
+# score_key = {
+#     "straight flush": 0,
+#     "four of a kind": 1,
+#     "full house": 2,
+#     "flush": 3,
+#     "staight": 4,
+#     "three of a kind": 5,
+#     "two pair": 6,
+#     "one pair": 7,
+#     "high card": 8
+# }
 
 hand1 = {
     (11, "clubs"),
