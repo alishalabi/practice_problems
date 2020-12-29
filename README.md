@@ -19,6 +19,8 @@
   - Conditionals, lists, loops, parsing
 - Brackets: https://exercism.io/my/solutions/8caf1bf63ed0490e9a7162238da94550
   - Parsing, recursion, stacks, strings
+- Largest Series: https://exercism.io/my/solutions/cb90a829998b491e97c5399dbdb70181
+  - Conditionals, loops, logic, math
 
 # Peer Collaboration:
 -
