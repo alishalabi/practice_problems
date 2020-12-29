@@ -21,6 +21,8 @@
   - Parsing, recursion, stacks, strings
 - Largest Series: https://exercism.io/my/solutions/cb90a829998b491e97c5399dbdb70181
   - Conditionals, loops, logic, math
+- Tournament: https://exercism.io/my/solutions/cb90a829998b491e97c5399dbdb70181
+  - Conditionals, loops, maps, parsing
 
 # Peer Collaboration:
 -
