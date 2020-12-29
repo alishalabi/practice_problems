@@ -63,24 +63,30 @@ class Tournament:
 
     def input_score(self, score):
         if score[0] not in self.all_teams.keys():
-            self.all_teams[score[0]] = {"wins": 0,
+            self.all_teams[score[0]] = {"wins": 0, "match played": 0,
                                         "loses": 0, "draws": 0, "points": 0}
         if score[1] not in self.all_teams.keys():
-            self.all_teams[score[1]] = {"wins": 0,
+            self.all_teams[score[1]] = {"wins": 0, "match played": 0,
                                         "loses": 0, "draws": 0, "points": 0}
         if score[2] == "win":
             self.all_teams[score[0]]["wins"] += 1
+            self.all_teams[score[0]]["match played"] += 1
             self.all_teams[score[0]]["points"] += 3
             self.all_teams[score[1]]["loses"] += 1
+            self.all_teams[score[1]]["match played"] += 1
         if score[2] == "loss":
             self.all_teams[score[1]]["wins"] += 1
             self.all_teams[score[1]]["points"] += 3
+            self.all_teams[score[1]]["match played"] += 1
             self.all_teams[score[0]]["loses"] += 1
+            self.all_teams[score[0]]["match played"] += 1
         if score[2] == "draw":
             self.all_teams[score[0]]["draws"] += 1
             self.all_teams[score[0]]["points"] += 1
+            self.all_teams[score[0]]["match played"] += 1
             self.all_teams[score[1]]["draws"] += 1
             self.all_teams[score[1]]["points"] += 1
+            self.all_teams[score[1]]["match played"] += 1
         return self.all_teams
 
     # TODO: Shoutout to https://github.com/jshams for help with sorting
@@ -89,8 +95,8 @@ class Tournament:
         sorted_teams = sorted(
             self.all_teams, key=lambda x: self.all_teams[x]["points"], reverse=True)
         for item in sorted_teams:
-            ret.append([item, self.all_teams[item]["wins"],
-                        self.all_teams[item]["loses"], self.all_teams[item]["draws"]])
+            ret.append([item, self.all_teams[item]["points"], self.all_teams[item]["wins"],
+                        self.all_teams[item]["loses"], self.all_teams[item]["draws"], self.all_teams[item]["match played"]])
         pprint(ret)
         return ret
 
