@@ -54,6 +54,8 @@ sample4 = ["Courageous Californians", "Blithering Badgers", "loss"]
 sample5 = ["Blithering Badgers", "Devastating Donkeys", "loss"]
 sample6 = ["Allegoric Alaskans", "Courageous Californians", "win"]
 
+from pprint import pprint
+
 
 class Tournament:
     def __init__(self):
@@ -81,10 +83,16 @@ class Tournament:
             self.all_teams[score[1]]["points"] += 1
         return self.all_teams
 
-    # TODO: Get Help with sorted!
+    # TODO: Shoutout to https://github.com/jshams for help with sorting
     def rank_teams(self):
-        sorted_teams = sorted(self.all_teams, key=lambda x: x["points"])
-        print(sorted_teams)
+        ret = []
+        sorted_teams = sorted(
+            self.all_teams, key=lambda x: self.all_teams[x]["points"], reverse=True)
+        for item in sorted_teams:
+            ret.append([item, self.all_teams[item]["wins"],
+                        self.all_teams[item]["loses"], self.all_teams[item]["draws"]])
+        pprint(ret)
+        return ret
 
 
 tournament = Tournament()
@@ -93,5 +101,5 @@ tournament.input_score(sample2)
 tournament.input_score(sample3)
 tournament.input_score(sample4)
 tournament.input_score(sample5)
-print(tournament.input_score(sample6))
+tournament.input_score(sample6)
 tournament.rank_teams()
