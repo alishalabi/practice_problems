@@ -89,7 +89,7 @@ class Tournament:
             self.all_teams[score[1]]["match played"] += 1
         return self.all_teams
 
-    # TODO: Shoutout to https://github.com/jshams for help with sorting
+    # Shoutout to https://github.com/jshams for help with sorting
     def rank_teams(self):
         ret = []
         sorted_teams = sorted(

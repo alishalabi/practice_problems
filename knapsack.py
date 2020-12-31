@@ -22,6 +22,7 @@ In this example, Bob should take the second and fourth item to maximize his valu
 """
 
 # Assumption: Sacrificing Memory For Run Time
+# TODO: This algorithm is optimized for "best value", explore how to minimize remaining bag size
 
 sample_items = [(5, 10), (4, 40), (6, 30), (4, 50)]
 
@@ -33,12 +34,24 @@ def convert_items(item_list):
         converted_item = {"ratio": converted_value,
                           "weight": item[0], "value": item[1]}
         unsorted_list.append(converted_item)
-    print(unsorted_list)
 
-    def get_key(item):
-        return item[0].ratio
-    ret = sorted(unsorted_list, key=get_key, reverse=True)
-    print(ret)
+    ret = sorted(
+        unsorted_list, key=lambda x: x["ratio"], reverse=True)
+    return ret
 
 
-convert_items(sample_items)
+def fill_knapsack(max_weight, item_list):
+    sorted_list = convert_items(item_list)
+    stolen_items = []  # Not mandatory, but useful if want to return all items, not just value
+    remaining_weight = max_weight
+    max_value = 0
+    for item in sorted_list:
+        if item["weight"] < remaining_weight:
+            max_value += item["value"]
+            remaining_weight -= item["weight"]
+    print(f"Max value is {max_value}")
+    return max_value
+
+
+# print(convert_items(sample_items))
+fill_knapsack(10, sample_items)
