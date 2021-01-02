@@ -26,6 +26,8 @@ In this example, Bob should take the second and fourth item to maximize his valu
 
 sample_items = [(5, 10), (4, 40), (6, 30), (4, 50)]
 
+edge_case1 = [(1, 5), (10, 10), (1, 4)]  # max = 10
+
 
 def convert_items(item_list):
     unsorted_list = []
@@ -47,11 +49,14 @@ def fill_knapsack(max_weight, item_list):
     max_value = 0
     for item in sorted_list:
         if item["weight"] < remaining_weight:
+            stolen_items.append(item)
             max_value += item["value"]
             remaining_weight -= item["weight"]
+    # Idea: check to see is max_value != 0?
     print(f"Max value is {max_value}")
     return max_value
 
 
 # print(convert_items(sample_items))
 fill_knapsack(10, sample_items)
+fill_knapsack(10, edge_case1)  # TODO
