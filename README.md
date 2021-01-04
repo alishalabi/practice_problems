@@ -23,6 +23,9 @@
   - Conditionals, loops, logic, math
 - Tournament: https://exercism.io/my/solutions/cb90a829998b491e97c5399dbdb70181
   - Conditionals, loops, maps, parsing
+- Gradeschool: https://exercism.io/my/solutions/4ea1b47ea5d74ceeb392dc24a966239a
+  - Conditionals, filtering, integers, lists
+
 
 # Peer Collaboration:
 -
