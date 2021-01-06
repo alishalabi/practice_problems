@@ -25,6 +25,8 @@
   - Conditionals, loops, maps, parsing
 - Gradeschool: https://exercism.io/my/solutions/4ea1b47ea5d74ceeb392dc24a966239a
   - Conditionals, filtering, integers, lists
+- Atbash Cipher: https://exercism.io/my/solutions/06cdf00a2d5948798fbbaf16455c4aa2
+  - Algorithms, loops, conditionals, strings
 
 
 # Peer Collaboration:
