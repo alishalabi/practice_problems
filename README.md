@@ -1,4 +1,5 @@
 # Exercise Key:
+## Python
 - Diamond of Kata (second iteration): https://exercism.io/my/solutions/cfd2c38ce50f4c7b8be5ed897377233f
 - Phone numbers: https://exercism.io/my/solutions/d24a15a9c00b4664846c32b8cffaf705
 - Protein Translation: https://exercism.io/my/solutions/7f97803876214cd094ac390215221a4d
@@ -28,6 +29,11 @@
 - Atbash Cipher: https://exercism.io/my/solutions/06cdf00a2d5948798fbbaf16455c4aa2
   - Algorithms, loops, conditionals, strings
 
+## Javascript
+- Resistor Color: https://exercism.io/my/solutions/15ea96404bda401789c9b487caabceca
+  - Arrays, strings
+- Triangle: https://exercism.io/my/solutions/116240bdfa6b4508b0ba2072b7c86120
+  - Integers
 
 # Peer Collaboration:
 -
