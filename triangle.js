@@ -9,9 +9,9 @@ A scalene triangle has all sides of different lengths.
 
 */
 
-triangle1 = [1, 2, 3]
-triangle2 = [2, 2, 4]
-triangle3 = [3, 3, 3]
+const triangle1 = [1, 2, 3]
+const triangle2 = [2, 2, 4]
+const triangle3 = [3, 3, 3]
 
 function checkTriangle(triangle) {
   // Check equilateral

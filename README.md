@@ -28,6 +28,8 @@
   - Conditionals, filtering, integers, lists
 - Atbash Cipher: https://exercism.io/my/solutions/06cdf00a2d5948798fbbaf16455c4aa2
   - Algorithms, loops, conditionals, strings
+- Kindergarten Garden: https://exercism.io/my/solutions/48a8a25c43db4aa9a1043df3a7111529
+  - Arrays, classes, optional values, variables
 
 ## Javascript
 - Resistor Color: https://exercism.io/my/solutions/15ea96404bda401789c9b487caabceca
