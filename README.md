@@ -36,6 +36,7 @@
   - Arrays, strings
 - Triangle: https://exercism.io/my/solutions/116240bdfa6b4508b0ba2072b7c86120
   - Integers
+  - Clock
 
 # Peer Collaboration:
 -
