@@ -30,9 +30,6 @@ Because there is space available, if the client again uses overwrite to store C 
 [D][7][8][9][A][B][C]
 """
 
-# Create node struct, create buffer struc
-# Each node has a position and a piece of data
-
 class BufferNode:
     def __init__(self, data):
         self.data = data
@@ -46,11 +43,13 @@ class CircularBuffer:
         self.tail = None
 
     def add_Node(self, data):
+        new_node = BufferNode(data)
         # Case buffer too large
         if self.current_size >= self.max_length:
-            print("Error: Circular buffer full! Remove a node before adding a new one")
-            return
-        new_node = BufferNode(data)
+            new_head = self.head.next
+            self.head = new_head
+            self.tail.next = new_node
+            self.tail = new_node
         # Case no data in buffer
         if self.head == None:
             self.head = new_node
@@ -78,11 +77,20 @@ class CircularBuffer:
             self.current_size -= 1
 
 
-test_buffer = CircularBuffer(3)
+test_buffer = CircularBuffer(4)
 test_buffer.add_Node("A")
 test_buffer.add_Node("B")
 test_buffer.add_Node("C")
-# print(test_buffer.head.data)
+test_buffer.add_Node("D")
+test_buffer.add_Node("E")
+print(test_buffer.head.data)
+print(test_buffer.head.next.data)
+print(test_buffer.tail.data)
+test_buffer.remove_Node()
+test_buffer.remove_Node()
+test_buffer.remove_Node()
+test_buffer.remove_Node()
+test_buffer.remove_Node()
+print(test_buffer.head)
 # print(test_buffer.head.next.data)
-# print(test_buffer.tail.data)
-# test_buffer.add_Node("D")
+print(test_buffer.tail)
