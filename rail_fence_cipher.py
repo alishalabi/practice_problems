@@ -73,7 +73,7 @@ def encode(decoded_msg, key):
     ret = ""
     for line in matrix:
         ret += "".join(line)
-    print (ret)
+    return ret
 
 
 def decode(encoded_msg):
@@ -89,4 +89,4 @@ def decode(encoded_msg):
     pass
 
 
-encode(sample_decoded, 3)
+print(encode(sample_decoded, 3))
