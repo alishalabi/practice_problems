@@ -34,17 +34,30 @@ class PrefixTree:
             return False
 
     def starts_with(self, prefix):
-        # TODO: depth first search
-        # current_Node = self.root
-        # for letter in word:
-        #     if letter not in current_Node.children:
-        #         return False
-        #     current_Node = current_Node.children[letter]
+        current_Node = self.root
+        for letter in prefix:
+            if letter not in current_Node.children:
+                return []
+            current_Node = current_Node.children[letter]
+        return self._DFS(current_Node, prefix)
+
+    def _DFS(self, node, prefix):
+        words = []
+        if node.isWord:
+            words.append(prefix)
+        for letter in node.children:
+            words.append(self._DFS(node.children[letter], prefix + letter))
+        return words
 
 
 test_tree = PrefixTree()
 test_tree.insert("cat")
 test_tree.insert("catdog")
 test_tree.insert("cats")
-print(test_tree.search("cat"))
-print(test_tree.search("dog"))
+test_tree.insert("dogs")
+test_tree.insert("door")
+test_tree.insert("doll")
+# print(test_tree.search("cat"))
+# print(test_tree.search("dog"))
+print(test_tree.starts_with("do"))
+print(test_tree.starts_with("ca"))
