@@ -24,9 +24,9 @@ def longest_prefix(array):
 
 # Method 2: prefix tree
 class Node:
-    def __init__(self, data):
-        self.data = None
-        self.children = {}
+    def __init__(self, data = None):
+        self.data = data
+        self.children = []
 
 class PrefixTree:
     def __init__(self):
@@ -35,8 +35,9 @@ class PrefixTree:
     def insert(self, word):
         current = self.root
         for letter in word:
+            new_node = Node(letter)
             if letter not in current.children:
-                current.children[letter] = Node()
+                current.children.append(Node(letter))
             current.children[letter] = current
 
     def build(self, words):
@@ -48,8 +49,10 @@ class PrefixTree:
         current = self.root
         if len(current.children.keys()) == 1:
             ret += current.children.keys()[0]
-            current.
+            print(ret)
 
+# print(longest_prefix(sample1))
 
-
-print(longest_prefix(sample1))
+tree = PrefixTree()
+tree.build(sample1)
+tree.longest_prefix()
