@@ -23,13 +23,14 @@ Input: height = [1,2,1]
 Output: 2
 """
 
-# Brute force method: O(n)^2
+
 
 input1 = [1,8,6,2,5,4,8,3,7]
 input2 = [1,1]
 input3 = [4,3,2,1,4]
 input4 = [1,2,1]
 
+# Brute force method: O(n)^2
 def solution1(input):
     output = 0
     for i in range(len(input)):
@@ -40,8 +41,26 @@ def solution1(input):
                 output = area
     return output
 
+# Two pointers method: O(n)
+def solution2(input):
+    left = 0
+    right = len(input) - 1
+    output = 0
+    while left < right:
+        area = min(input[left], input[right]) * (right - left)
+        if area > output:
+            output = area
+        if input[left] < input[right]:
+            left += 1
+        else:
+            right -= 1
+    return output
 
-print(solution1(input1))
-print(solution1(input2))
-print(solution1(input3))
-print(solution1(input4))
+# print(solution1(input1))
+# print(solution1(input2))
+# print(solution1(input3))
+# print(solution1(input4))
+print(solution2(input1))
+print(solution2(input2))
+print(solution2(input3))
+print(solution2(input4))

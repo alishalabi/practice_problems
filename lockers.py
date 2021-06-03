@@ -5,7 +5,7 @@ to rent the closest available locker, and vacate their own locker at any time.
 There should be a maximum number of lockers available.
 """
 
-max_lockers = 50
+max_lockers = 2
 
 class Locker:
     def __init__(self, max_lockers):
@@ -22,7 +22,7 @@ class Locker:
             return
         self.all_lockers[self.first_avail] = True
         self.capacity += 1
-        while self.first_avail < self.max_lockers:
+        while self.first_avail < self.max_lockers - 1:
             curr = self.first_avail + 1
             if self.all_lockers[curr] == False:
                 self.first_avail = curr
@@ -45,6 +45,9 @@ test = Locker(max_lockers)
 test.rent()
 test.rent()
 test.rent()
-test.vacate(0)
+test.rent()
+test.rent()
+test.vacate(2)
+test.rent()
 print(test.all_lockers)
 print(test.first_avail)
