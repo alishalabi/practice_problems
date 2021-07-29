@@ -35,6 +35,22 @@ class LinkedList:
         if position == 1:
             self.tail = current
 
+    def tortoise_and_hare(self, position):
+        fast = self.head
+        slow = self.head
+        counter = 0
+        while (counter + 1) < position:
+            fast = fast.next
+            counter += 1
+        while fast.next != None:
+            slow = slow.next
+            fast = fast.next
+        if position == 1:
+            self.tail = slow
+            slow.next = None
+        else:
+            slow.next = slow.next.next
+
 
     def print_LL(self):
         current = self.head
@@ -56,5 +72,6 @@ LL1.add_node(nodeC)
 LL1.add_node(nodeD)
 LL1.add_node(nodeE)
 
-LL1.remove_nth(2)
+# LL1.remove_nth(2)
+LL1.tortoise_and_hare(2)
 LL1.print_LL()
