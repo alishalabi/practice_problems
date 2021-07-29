@@ -22,8 +22,26 @@ class LinkedList:
         self.tail = node
         self.length += 1
 
-    def remove_nth1(position):
-        target = self.length
+    def remove_nth(self, position):
+        target = self.length - position
+        # print(target)
+        counter = 0
+        current = self.head
+        while (counter + 1) < target:
+            current = current.next
+            counter += 1
+        current.next = current.next.next
+
+        if position == 1:
+            self.tail = current
+
+
+    def print_LL(self):
+        current = self.head
+        while current.next != None:
+            print(current.data)
+            current = current.next
+        print(self.tail.data)
 
 nodeA = Node(1)
 nodeB = Node(2)
@@ -38,6 +56,5 @@ LL1.add_node(nodeC)
 LL1.add_node(nodeD)
 LL1.add_node(nodeE)
 
-print(LL1.head.data)
-print(LL1.tail.data)
-print(LL1.length)
+LL1.remove_nth(2)
+LL1.print_LL()
