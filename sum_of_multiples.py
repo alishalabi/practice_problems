@@ -18,12 +18,22 @@ ascending order.
 target = 20
 multiples = [3, 5]
 
+# def sum_of_multiples(target, multiples):
+#     output = []
+#     for multiple in multiples:
+#         for number in range(target):
+#             if number % multiple == 0 and number not in output:
+#                 output.append(number)
+#     return sum(output)
+
 def sum_of_multiples(target, multiples):
-    output = []
+    seen = set()
+    output = 0
     for multiple in multiples:
         for number in range(target):
-            if number % multiple == 0 and number not in output:
-                output.append(number)
-    return sum(output)
+            if number % multiple == 0 and number not in seen:
+                seen.add(number)
+                output += number
+    return output
 
 print(sum_of_multiples(target, multiples))
