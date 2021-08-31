@@ -15,4 +15,4 @@ def all_combinations(input):
 
     return combinations
 
-print(all_combinations(input))
+# print(all_combinations(input))

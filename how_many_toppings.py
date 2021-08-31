@@ -6,6 +6,16 @@ How many menu items will they need?
 
 import combinations
 
-# input = ["ketchup", "lettuce", "mustard", "pickles", "onions", "cheese"]
-#
-# print(combinations.all_combinations(input))
+target = 1000000
+
+def how_many_combinations(target):
+    arr = []
+    combos = combinations.all_combinations(arr)
+    counter = 1
+    while len(combos) < target:
+        arr.append(counter)
+        counter += 1
+        combos = combinations.all_combinations(arr)
+    return len(arr)
+
+print(how_many_combinations(target))
