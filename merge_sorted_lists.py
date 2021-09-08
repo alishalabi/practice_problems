@@ -13,8 +13,7 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    def add_node(self, data):
-        node = Node(data)
+    def add_node(self, node):
         if self.head == None:
             self.head = node
             self.tail = node
@@ -60,16 +59,16 @@ def merge_lists(LL1, LL2):
 
 
 LL1 = LinkedList()
-LL1.add_node(1)
-LL1.add_node(2)
-LL1.add_node(4)
-LL1.print_LL()
+LL1.add_node(Node(1))
+LL1.add_node(Node(2))
+LL1.add_node(Node(4))
+# LL1.print_LL()
 
 LL2 = LinkedList()
-LL2.add_node(1)
-LL2.add_node(3)
-LL2.add_node(4)
-LL2.print_LL()
+LL2.add_node(Node(1))
+LL2.add_node(Node(3))
+LL2.add_node(Node(4))
+# LL2.print_LL()
 
 test = merge_lists(LL1, LL2)
 test.print_LL()
