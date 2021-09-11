@@ -43,6 +43,16 @@ class LinkedList:
             print(node.data)
             node = node.next
 
+    def swap_nodes(self):
+        first = self.head
+        second = self.head.next
+        while first != None and second != None:
+            temp_first = first
+            temp_second = second
+            first = temp_second
+            second = temp_first
+            # Issue = how to deal with values if node.next.next does not exist
+
 
 LL = LinkedList()
 LL.add_node(Node(1))
