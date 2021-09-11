@@ -45,14 +45,20 @@ class LinkedList:
 
     def swap_nodes(self):
         first = self.head
-        second = self.head.next
-        while first != None and second != None:
+        pointer = self.head
+        while first != None and first.next != None:
             temp_first = first
-            temp_second = second
-            first = temp_second
-            second = temp_first
+            temp_second = first.next
+            if first == self.head:
+                self.head = temp_second
+                self.head.next = temp_first
             # Issue = how to deal with values if node.next.next does not exist
-
+            if second.next == None:
+                return
+            if second.next.next == None:
+                return
+            first = first.next.next
+            second = second.next.next
 
 LL = LinkedList()
 LL.add_node(Node(1))
@@ -60,4 +66,5 @@ LL.add_node(Node(2))
 LL.add_node(Node(3))
 LL.add_node(Node(4))
 
+LL.swap_nodes()
 LL.print_LL()
