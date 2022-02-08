@@ -44,11 +44,13 @@ class LinkedList:
             node = node.next
 
     def swap_nodes(self):
+        if self.head == self.tail:
+            return
         first = self.head
-        pointer = self.head
-        while first != None and first.next != None:
+        second = self.head.next
+        while first != None and second != None:
             temp_first = first
-            temp_second = first.next
+            temp_second = second
             if first == self.head:
                 self.head = temp_second
                 self.head.next = temp_first
